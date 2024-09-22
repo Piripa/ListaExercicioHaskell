@@ -1,0 +1,83 @@
+Equipe: - Vinicius Alessandro Pereira de Oliveira
+		- Victor Eduardo Nascimento Almeida
+		- Matheus Patriota de Andrade
+
+1. 
+	a- A expressão "squid" ++ "clam" é do tipo String
+	b- A expressão [True, False, True, True] é do tipo Booleana(Bool)
+	c- A expressão [True, False, 'a'] me retorna um erro. Visto que, listas só aceitam apenas um elementos de único tipo.
+	d- A expressão (True, False, 'a') retorna o tipo (Bool, Bool, Char), porque tuplas aceitam mais de um tipo em seus elementos.
+------------------------------------------------------------------------------------------
+2.
+	cubo :: Double -> Double
+	cubo x = x * x * x
+
+	main :: IO()
+	main = print(cubo 2.0)
+------------------------------------------------------------------------------------------
+3.
+	tipodouble :: Double -> Double -> Double -> Double
+	tipodouble valordouble1 valordouble2 valordouble3 = valordouble1 + valordouble2 + valordouble3
+
+	main:: IO()
+	main = print(tipodouble 2.1 1.5 1.2)
+------------------------------------------------------------------------------------------
+4.
+	quadratica :: Double -> Double -> Double -> Double -> Double
+	quadratica a b c x = a * x^2 + b * x + c
+
+	main :: IO()
+	main = do
+
+		let a = 2.0
+		let b = 3.0
+		let c = 4.0
+		let x = 5.0
+
+		let resultado = quadratica a b c x 
+
+		putStrln(show resultado)
+------------------------------------------------------------------------------------------
+
+5.
+	listaReversa :: [a] -> [a]
+	listaReversa [] = []
+	listaReversa ( x:xs) = listaReversa xs ++ [x]
+
+	main :: IO()
+	main = do 
+		print $ listaReversa [1,2,3,4]
+		print $ listaReversa "hello"
+		print $ listaReversa [False, False, True]
+		print $ listaReversa ([] :: [Int])
+------------------------------------------------------------------------------------------
+6.
+	doubles :: [Double]
+	doubles = gerar 10
+		where
+			gerar x = x:gerar(2*x)
+
+	main :: IO()
+	main = print(doubles)
+
+------------------------------------------------------------------------------------------
+7.
+	dollars :: [Double]
+	dollars = iterate(*1.05)100.0
+
+	main :: IO()
+	main = do
+		let primeirosValores = take 10 dollars
+
+		print primeirosValores
+------------------------------------------------------------------------------------------
+8.
+	a-my_const recebe dois argumentos a e b, e sempre retorna o argumento do tipo a
+	b-  my_const True recebe um argumento do tipo b e sempre retorna booleano (True)
+	c-append é utilizado para concatenar 2 listas a e b de mesmo tipo
+	d-append [] recebe uma lista a e concatena com uma lista vazia, retornando a lista a
+	e-append [True, False] concatena uma lista de booleanos
+	f-a concatenação de listas de tipos diferentes não é aceita em haskell, portanto dará erro de tipo
+	g-[‘a’,’b’] é uma lista de char, “squid” também é uma lista de char, logo haverá concatenação
+	h-map transforma um valor de uma lista do tipo a para o tipo b
+	i-my_const True sempre recebe um argumento e retorna booleano (true), ao colar na função my_map, todos os argumentos da lista b se tornarão boolean (True)
